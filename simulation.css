@@ -1,0 +1,53 @@
+#container {
+    position: absolute;
+    overflow: visible;
+    left: 20px
+}
+
+#x1 {
+    position: relative;
+    bottom: 227.5px;
+    left: 115px;
+}
+
+#y1{
+    position: relative;
+    bottom: 387.5px;
+    left: 115px;
+}
+
+#x3{
+    position: relative;
+    bottom: 347.5px;
+    left: 350px;
+}
+
+#y3{
+    position: relative;
+    bottom: 340px;
+    left: 350px;
+}
+
+#x4{
+    position: relative;
+    bottom: 210px;
+    left: 280px;
+}
+
+#y4{
+    position: relative;
+    bottom: 280px;
+    left: 195px;
+}
+
+#x2{
+    position: relative;
+    bottom: 410px;
+    left: 195px;
+}
+
+#y2{
+    position: relative;
+    bottom: 480px;
+    left: 270px;
+}
