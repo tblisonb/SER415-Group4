@@ -9,19 +9,31 @@
 <body>
 Enter input:
 <br/></br>
-<input type="text" id="input1" size="32" placeholder="X1 Flow"><br/>
-<br/>
-<input type="text" id="input2" size="32" placeholder="X2 Flow"><br/>
-<br/>
-<input type="text" id="input3" size="32" placeholder="X3 Flow"><br/>
-<br/>
-<input type="text" id="input4" size="32" placeholder="X4 Flow"><br/>
-<br/>
+<input type="text" id="input1" size="12" placeholder="X1 Flow">
+<input type="text" id="x1_R" size="12" placeholder="X1 % Right">
+<input type="text" id="x1_S" size="12" placeholder="X1 % Straight">
+<input type="text" id="x1_L" size="12" placeholder="X1 % Left">
+<br/><br/>
+<input type="text" id="input2" size="12" placeholder="X2 Flow">
+<input type="text" id="x2_R" size="12" placeholder="X2 % Right">
+<input type="text" id="x2_S" size="12" placeholder="X2 % Straight">
+<input type="text" id="x2_L" size="12" placeholder="X2 % Left">
+<br/><br/>
+<input type="text" id="input3" size="12" placeholder="X3 Flow">
+<input type="text" id="x3_R" size="12" placeholder="X3 % Right">
+<input type="text" id="x3_S" size="12" placeholder="X3 % Straight">
+<input type="text" id="x3_L" size="12" placeholder="X3 % Left">
+<br/><br/>
+<input type="text" id="input4" size="12" placeholder="X4 Flow">
+<input type="text" id="x4_R" size="12" placeholder="X4 % Right">
+<input type="text" id="x4_S" size="12" placeholder="X4 % Straight">
+<input type="text" id="x4_L" size="12" placeholder="X4 % Left">
+<br/><br/>
 <p id="state"></p>
 <p id="time"></p>
 <br/>
-<button type="button" onclick="submitClicked()">Submit Parameters</button>
-<button type="button" onclick="startSimulation()">Start Simulation</button>
+<button id="b_param" type="button" onclick="submitClicked()">Submit Parameters</button>
+<button id="b_sim" type="button" onclick="startSimulation()">Start Simulation</button>
 <p id="greet_p"></p>
 <br/>
 <p id="article_p"></p>
