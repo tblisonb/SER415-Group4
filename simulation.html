@@ -8,18 +8,20 @@
 <script src="simulation.js" type="text/javascript"></script>
 <body>
 Enter input:
+<br/></br>
+<input type="text" id="input1" size="32" placeholder="X1 Flow"><br/>
 <br/>
-<input type="text" id="nameField" size="32"><br/>
+<input type="text" id="input2" size="32" placeholder="X2 Flow"><br/>
 <br/>
-<input type="text" id="input2" size="32"><br/>
+<input type="text" id="input3" size="32" placeholder="X3 Flow"><br/>
 <br/>
-<input type="text" id="input3" size="32"><br/>
+<input type="text" id="input4" size="32" placeholder="X4 Flow"><br/>
 <br/>
-<input type="text" id="input4" size="32"><br/>
-<br/>
+<p id="state"></p>
 <p id="time"></p>
 <br/>
-<button type="button" onclick="submitClicked()">Submit</button>
+<button type="button" onclick="submitClicked()">Submit Parameters</button>
+<button type="button" onclick="startSimulation()">Start Simulation</button>
 <p id="greet_p"></p>
 <br/>
 <p id="article_p"></p>
