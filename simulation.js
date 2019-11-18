@@ -52,6 +52,7 @@ function submitClicked() {
  */
 function startSimulation() {
     var clock = setInterval(incrementTime, 1000);
+    document.getElementById("b_sim").disabled = true;
 }
 
 function coreEngine() {
