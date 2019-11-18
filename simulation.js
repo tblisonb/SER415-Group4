@@ -1,5 +1,14 @@
+let sim_time = 0;
+
+function incrementTime() {
+    document.getElementById("time").src = sim_time;
+    document.getElementById("time").innerText = "Current Time: " + sim_time;
+    sim_time += 1;
+}
+
 function submitClicked() {
     //clearly this will do something else
+    var clock = setInterval(incrementTime, 1000);
     var name = document.getElementById("nameField").value;
     document.cookie = "username=" + name;
 
