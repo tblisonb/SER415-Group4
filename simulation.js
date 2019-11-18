@@ -1,8 +1,12 @@
 /**
  * Global simulation time in seconds.
  * @type {number}
+ * **
+ * Global sate time in seconds.
+ * @type {number}
  */
 let sim_time = 0;
+let state_time = 0;
 /**
  * State represented by an integer between 1 and 4.
  * 1 - N/S straight + right
@@ -14,7 +18,7 @@ let sim_time = 0;
 let state = 1;
 
 /**
- * Increments the current simulation time by one second.
+ * Increments the current simulation time by one second and cycles through the simulation states.
  */
 function incrementTime() {
     document.getElementById("time").src = sim_time;
@@ -22,6 +26,16 @@ function incrementTime() {
     updatePicture();
     updateState();
     sim_time += 1;
+    state_time += 1;
+    if (state_time >= 10)
+        if (state >= 4) {
+            state = 1;
+            state_time = 0;
+        }
+    else {
+            state += 1;
+            state_time = 0;
+        }
 }
 
 /**
