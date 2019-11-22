@@ -43,8 +43,26 @@ function incrementTime() {
  */
 function submitClicked() {
     //clearly this will do something else
-    var name = document.getElementById("nameField").value;
-    document.cookie = "username=" + name;
+    console.log('submit');
+
+    let modelInit = {};
+    modelInit.straightFlow = 0.6;
+    modelInit.rightFlow = 0.2;
+    modelInit.leftFlow = 0.2;
+    modelInit.reactionTime = 2;
+    modelInit.peakFlow = 70;
+    modelInit.timeToPeak = 5; // This number will probably be between 5-20. Think of this as a speed coefficent. It shifts the whole curve. Smaller number is more acceleration
+    modelInit.X1 = 10;
+    modelInit.X3 = 10;
+    modelInit.X2 = 20;
+    modelInit.X4 = 20;
+    modelInit.NS_Green = 15;
+    modelInit.NS_Left = 5;
+    modelInit.EW_Green = 15;
+    modelInit.EW_Left = 5;
+    console.log(modelInit);
+    let trafficModel = new TrafficModel(modelInit);
+    document.getElementById("greet_p").innerHTML = JSON.stringify(trafficModel.verify());
 }
 
 /**
