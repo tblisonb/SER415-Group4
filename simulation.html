@@ -8,36 +8,49 @@
 <script src="model.js" type="text/javascript"></script>
 <script src="simulation.js" type="text/javascript"></script>
 <body>
-Enter input:
-<br/></br>
-<input type="text" id="input1" size="12" placeholder="X1 Flow">
-<input type="text" id="x1_R" size="12" placeholder="X1 % Right">
-<input type="text" id="x1_S" size="12" placeholder="X1 % Straight">
-<input type="text" id="x1_L" size="12" placeholder="X1 % Left">
-<br/><br/>
-<input type="text" id="input2" size="12" placeholder="X2 Flow">
-<input type="text" id="x2_R" size="12" placeholder="X2 % Right">
-<input type="text" id="x2_S" size="12" placeholder="X2 % Straight">
-<input type="text" id="x2_L" size="12" placeholder="X2 % Left">
-<br/><br/>
-<input type="text" id="input3" size="12" placeholder="X3 Flow">
-<input type="text" id="x3_R" size="12" placeholder="X3 % Right">
-<input type="text" id="x3_S" size="12" placeholder="X3 % Straight">
-<input type="text" id="x3_L" size="12" placeholder="X3 % Left">
-<br/><br/>
-<input type="text" id="input4" size="12" placeholder="X4 Flow">
-<input type="text" id="x4_R" size="12" placeholder="X4 % Right">
-<input type="text" id="x4_S" size="12" placeholder="X4 % Straight">
-<input type="text" id="x4_L" size="12" placeholder="X4 % Left">
-<br/><br/>
-<p id="state"></p>
-<p id="time"></p>
-<br/>
-<button id="b_param" type="button" onclick="submitClicked()">Submit Parameters</button>
-<button id="b_sim" type="button" onclick="startSimulation()">Start Simulation</button>
-<p id="greet_p"></p>
-<br/>
-<p id="article_p"></p>
+<h4>Enter input:</h4>
+<div id="all_inputs">
+    <div id="variables">
+        <input type="text" id="input1" size="12" placeholder="X1 Flow">
+        <input type="text" id="x1_R" size="12" placeholder="X1 % Right">
+        <input type="text" id="x1_S" size="12" placeholder="X1 % Straight">
+        <input type="text" id="x1_L" size="12" placeholder="X1 % Left">
+        <br/><br/>
+        <input type="text" id="input2" size="12" placeholder="X2 Flow">
+        <input type="text" id="x2_R" size="12" placeholder="X2 % Right">
+        <input type="text" id="x2_S" size="12" placeholder="X2 % Straight">
+        <input type="text" id="x2_L" size="12" placeholder="X2 % Left">
+        <br/><br/>
+        <input type="text" id="input3" size="12" placeholder="X3 Flow">
+        <input type="text" id="x3_R" size="12" placeholder="X3 % Right">
+        <input type="text" id="x3_S" size="12" placeholder="X3 % Straight">
+        <input type="text" id="x3_L" size="12" placeholder="X3 % Left">
+        <br/><br/>
+        <input type="text" id="input4" size="12" placeholder="X4 Flow">
+        <input type="text" id="x4_R" size="12" placeholder="X4 % Right">
+        <input type="text" id="x4_S" size="12" placeholder="X4 % Straight">
+        <input type="text" id="x4_L" size="12" placeholder="X4 % Left">
+        <p id="state"></p>
+        <p id="time"></p>
+        <br/>
+        <br>
+        <button id="b_param" type="button" onclick="submitClicked()">Submit Parameters</button>
+        <button id="b_sim" type="button" onclick="startSimulation()">Start Simulation</button>
+        <p id="greet_p"></p>
+        <br/>
+        <p id="article_p"></p>
+    </div>
+    <div id="features">
+        <h4>Features</h4>
+        <input type="radio" name="features" id="feature1">Two-Car Collision - One lane closure <br>
+        <input type="radio" name="features" id="feature2">Multi-Car Collision - Two Lane closure <br>
+        <input type="radio" name="features" id="feature3">Construction <br>
+        <input type="radio" name="features" id="feature4">Snowy Weather <br>
+        <input type="radio" name="features" id="feature5">Rainy Weather <br>
+        <input type="radio" name="features" id="feature6">Cross-Interseciton Construction <br>
+    </div>
+    
+</div>
 
 <!------------------------------- Image example --------------------------------------->
 

@@ -1,3 +1,18 @@
+/* #all_inputs {
+    position: relative;
+    width: 100%;
+}
+#variables {
+    width: 20%;
+    position: relative;
+    float: left;
+    clear: left;
+}
+#features {
+    width: 70%;
+    position: relative;
+    float: right;
+} */
 #container {
     position: absolute;
     overflow: visible;
