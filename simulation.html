@@ -32,7 +32,6 @@
         <input type="text" id="x4_L" size="12" placeholder="X4 % Left">
         <p id="state"></p>
         <p id="time"></p>
-        <br/>
         <br>
         <button id="b_param" type="button" onclick="submitClicked()">Submit Parameters</button>
         <button id="b_sim" type="button" onclick="startSimulation()">Start Simulation</button>
@@ -40,6 +39,16 @@
         <br/>
         <p id="article_p"></p>
     </div>
+    <hr width="450px" align="left"/>
+    <h4>Enter cycle time:</h4>
+    <div id="cycle_time">
+        <input type="text" id="state1" size="24" placeholder="N/S S+R Time"><br/><br/>
+        <input type="text" id="state2" size="24" placeholder="E/W S+R Time"><br/><br/>
+        <input type="text" id="state3" size="24" placeholder="N/S L Time"><br/><br/>
+        <input type="text" id="state4" size="24" placeholder="E/W L Time"><br/><br/>
+    </div>
+    <p id="cycle_time_warning"></p>
+    <hr width="450px" align="left"/>
     <div id="features">
         <h4>Features</h4>
         <input type="radio" name="features" id="feature1">Two-Car Collision - One lane closure <br>

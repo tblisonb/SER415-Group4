@@ -27,7 +27,7 @@ function incrementTime() {
     updateState();
     sim_time += 1;
     state_time += 1;
-    if (state_time >= 10)
+    if (state_time >= document.getElementById("state" + state).value)
         if (state >= 4) {
             state = 1;
             state_time = 0;
@@ -70,8 +70,16 @@ function submitClicked() {
  * Begins the global simulation time.
  */
 function startSimulation() {
-    var clock = setInterval(incrementTime, 1000);
-    document.getElementById("b_sim").disabled = true;
+    if (document.getElementById("state1").value != null && document.getElementById("state1").value > 0 &&
+        document.getElementById("state2").value != null && document.getElementById("state2").value > 0 &&
+        document.getElementById("state3").value != null && document.getElementById("state3").value > 0 &&
+        document.getElementById("state4").value != null && document.getElementById("state4").value > 0) {
+        document.getElementById("cycle_time_warning").innerText = null;
+        var clock = setInterval(incrementTime, 1000);
+        document.getElementById("b_sim").disabled = true;
+    } else {
+        document.getElementById("cycle_time_warning").innerText = "Error: Must supply cycle times.";
+    }
 }
 
 function coreEngine() {
