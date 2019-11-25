@@ -1,7 +1,8 @@
 #container {
     position: absolute;
     overflow: visible;
-    left: 20px
+    left: 500px;
+    bottom: 250px;
 }
 
 #x1 {
