@@ -5,6 +5,8 @@ straightFlow: number less than 1
 rightFlow: number less than 1
 leftFlow: number less than 1
 
+environmentModifer: number, percentage modifer to traffic flow, defaults to 1.
+
 reactionTime: number of seconds before drivers start moving, defaults to 2 seconds
 peakFlow: the max flow for cars in any direction aka horizontal asymptote for acceleration function, defaults to 70 cars/sec
 timeToPeak: number of seconds until acceleration inflection point. How long cars go before you see diminishing returns from acceleration, defaults to 20 sec
@@ -41,7 +43,7 @@ function getTotalCarOnGreenCycle(time) {
     time = time - mi.reactionTime;
 
     // Integral is from a to b is integral(b) - integral(a). In our case it always starts at 0 to our elapsed time
-    return getAccelIntegralAtTime(time) - getAccelIntegralAtTime(0);
+    return mi.environmentModifer * (getAccelIntegralAtTime(time) - getAccelIntegralAtTime(0));
 
 }
 
@@ -58,6 +60,9 @@ function init(MI) {
     }
     if (typeof(MI.timeToPeak) === 'undefined') {
         MI.timeToPeak = 20;
+    }
+    if (typeof(MI.timeToPeak) === 'undefined') {
+        MI.environmentModifer = 1;
     }
 
     MI.NS_rate = MI.X1 > MI.X3 ? MI.X1 : MI.X3;

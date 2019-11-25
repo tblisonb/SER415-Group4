@@ -50,10 +50,11 @@ function submitClicked() {
     modelInit.rightFlow = 0.2;
     modelInit.leftFlow = 0.2;
     modelInit.reactionTime = 2;
+    modelInit.environmentModifer = 1;
     modelInit.peakFlow = 70;
     modelInit.timeToPeak = 5; // This number will probably be between 5-20. Think of this as a speed coefficent. It shifts the whole curve. Smaller number is more acceleration
-    modelInit.X1 = 10;
-    modelInit.X3 = 10;
+    modelInit.X1 = 5;
+    modelInit.X3 = 5;
     modelInit.X2 = 20;
     modelInit.X4 = 20;
     modelInit.NS_Green = 15;
