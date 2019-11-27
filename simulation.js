@@ -61,6 +61,26 @@ function submitClicked() {
     modelInit.NS_Left = 5;
     modelInit.EW_Green = 15;
     modelInit.EW_Left = 5;
+
+    if (document.getElementById("feature1").checked){
+        modelInit = modifyTraffic(modelInit, .67, NaN, NaN)
+    }
+    else if (document.getElementById("feature2").checked){
+        modelInit = modifyTraffic(modelInit, .33, NaN, NaN)
+    }
+    else if (document.getElementById("feature3").checked){
+        modelInit = modifyTraffic(modelInit, .55, NaN, NaN)
+    }
+    else if (document.getElementById("feature4").checked){
+        modelInit = modifyTraffic(modelInit, .75, 6, 3)
+    }
+    else if (document.getElementById("feature5").checked){
+        modelInit = modifyTraffic(modelInit, .80, 5.5, 2.5)
+    }
+    else if (document.getElementById("feature6").checked){
+        modelInit = modifyTraffic(modelInit, .3015, NaN, NaN)
+    }
+
     console.log(modelInit);
     let trafficModel = new TrafficModel(modelInit);
     document.getElementById("greet_p").innerHTML = JSON.stringify(trafficModel.verify());
@@ -80,6 +100,20 @@ function startSimulation() {
     } else {
         document.getElementById("cycle_time_warning").innerText = "Error: Must supply cycle times.";
     }
+}
+
+/**
+ * This function updates the environmentModifier and timeToPeak values as part of user features.
+ */
+function modifyTraffic(modelInit, environmentModifier, timeToPeak, reactionTime){
+    modelInit.environmentModifer = environmentModifier;
+    if (!isNaN(timeToPeak)){
+        modelInit.timeToPeak = timeToPeak;
+    }
+    if (!isNaN(reactionTime)){
+        modelInit.reactionTime = reactionTime;
+    }
+    return modelInit;
 }
 
 function coreEngine() {
