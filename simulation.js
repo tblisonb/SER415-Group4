@@ -78,14 +78,14 @@ function submitClicked() {
             modelInit.environmentModifer = 1;
             modelInit.peakFlow = 70;
             modelInit.timeToPeak = 5; // This number will probably be between 5-20. Think of this as a speed coefficent. It shifts the whole curve. Smaller number is more acceleration
-            modelInit.X1 = 5;
-            modelInit.X3 = 5;
-            modelInit.X2 = 20;
-            modelInit.X4 = 20;
-            modelInit.NS_Green = 15;
-            modelInit.NS_Left = 5;
-            modelInit.EW_Green = 15;
-            modelInit.EW_Left = 5;
+            modelInit.X1 = document.getElementById("input1").value;
+            modelInit.X3 = document.getElementById("input3").value;
+            modelInit.X2 = document.getElementById("input2").value;
+            modelInit.X4 = document.getElementById("input4").value;
+            modelInit.NS_Green = document.getElementById("state1").value;
+            modelInit.NS_Left = document.getElementById("state3").value;
+            modelInit.EW_Green = document.getElementById("state2").value;
+            modelInit.EW_Left = document.getElementById("state4").value;
 
             if (document.getElementById("feature1").checked) {
                 modelInit = modifyTraffic(modelInit, .67, NaN, NaN)
