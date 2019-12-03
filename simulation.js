@@ -49,20 +49,23 @@ function incrementTime() {
     document.getElementById("x4_valid").innerText = verification.NS_Left;
 }
 
+
+function verifyPercentages() {
+    return  100 === (Number(document.getElementById("x1_S").value) + Number(document.getElementById("x1_R").value) + Number(document.getElementById("x1_L").value));
+}
+
 /**
  * Accept user parameters.
  */
 function submitClicked() {
     console.log('submit');
-    let modelInit = {};
-    modelInit.straightFlow = document.getElementById("x1_S").value;
-    modelInit.rightFlow = document.getElementById("x1_R").value;
-    modelInit.leftFlow = document.getElementById("x1_L").value;
-    if ((parseInt(modelInit.straightFlow) + parseInt(modelInit.rightFlow) + parseInt(modelInit.leftFlow))/100 !== 1) {
-        console.log(parseInt(modelInit.straightFlow) + parseInt(modelInit.rightFlow) + parseInt(modelInit.leftFlow));
-        alert("Percentages must equal 100!");
-    } else {
-        document.getElementById("b_param").disabled = true;
+    if(!verifyPercentages())
+        alert("Percentages do not add up to 100 percent, please try again");
+    else {
+        let modelInit = {};
+        modelInit.straightFlow = document.getElementById("x1_S").value;
+        modelInit.rightFlow = document.getElementById("x1_R").value;
+        modelInit.leftFlow = document.getElementById("x1_L").value;
         document.getElementById("b_sim").disabled = false;
         modelInit.reactionTime = 2;
         modelInit.environmentModifer = 1;
@@ -76,29 +79,21 @@ function submitClicked() {
         modelInit.NS_Left = 5;
         modelInit.EW_Green = 15;
         modelInit.EW_Left = 5;
-    
-        if (document.getElementById("feature1").checked){
+
+        if (document.getElementById("feature1").checked) {
             modelInit = modifyTraffic(modelInit, .67, NaN, NaN)
-        }
-        else if (document.getElementById("feature2").checked){
+        } else if (document.getElementById("feature2").checked) {
             modelInit = modifyTraffic(modelInit, .33, NaN, NaN)
-        }
-        else if (document.getElementById("feature3").checked){
+        } else if (document.getElementById("feature3").checked) {
             modelInit = modifyTraffic(modelInit, .55, NaN, NaN)
-        }
-        else if (document.getElementById("feature4").checked){
+        } else if (document.getElementById("feature4").checked) {
             modelInit = modifyTraffic(modelInit, .75, 6, 3)
-        }
-        else if (document.getElementById("feature5").checked){
+        } else if (document.getElementById("feature5").checked) {
             modelInit = modifyTraffic(modelInit, .80, 5.5, 2.5)
-        }
-        else if (document.getElementById("feature6").checked){
+        } else if (document.getElementById("feature6").checked) {
             modelInit = modifyTraffic(modelInit, .3015, NaN, NaN)
         }
-    
         console.log(modelInit);
-        let trafficModel = new TrafficModel(modelInit);
-        document.getElementById("greet_p").innerHTML = JSON.stringify(trafficModel.verify());
     }
 }
 
