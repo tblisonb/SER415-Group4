@@ -38,10 +38,15 @@ function incrementTime() {
         }
     document.getElementById("total_cars").innerText = (Math.round(getTotalCarOnGreenCycle(sim_time) * 100) / 100).toFixed(2);
     let verification = verify();
-    document.getElementById("x1_flow").innerText = verification.EW_Green;
-    document.getElementById("x2_flow").innerText = verification.NS_Green;
-    document.getElementById("x3_flow").innerText = verification.EW_Left;
-    document.getElementById("x4_flow").innerText = verification.NS_Left;
+    let totalCycleTime = mi.NS_Green + mi.NS_Left + mi.EW_Green + mi.EW_Left;
+    document.getElementById("x1_flow").innerText = (mi.NS_rate * (mi.straightFlow > mi.rightFlow ? mi.straightFlow : mi.rightFlow)) * totalCycleTime;
+    document.getElementById("x2_flow").innerText = (mi.EW_rate * (mi.straightFlow > mi.rightFlow ? mi.straightFlow : mi.rightFlow)) * totalCycleTime;
+    document.getElementById("x3_flow").innerText = (mi.NS_rate * mi.leftFlow) * totalCycleTime;
+    document.getElementById("x4_flow").innerText = (mi.EW_rate * mi.leftFlow) * totalCycleTime;
+    document.getElementById("x1_valid").innerText = verification.EW_Green;
+    document.getElementById("x2_valid").innerText = verification.NS_Green;
+    document.getElementById("x3_valid").innerText = verification.EW_Left;
+    document.getElementById("x4_valid").innerText = verification.NS_Left;
 }
 
 /**
@@ -49,6 +54,7 @@ function incrementTime() {
  */
 function submitClicked() {
     console.log('submit');
+    document.getElementById("b_param").disabled = true;
     let modelInit = {};
     modelInit.straightFlow = document.getElementById("x1_S").value;
     modelInit.rightFlow = document.getElementById("x1_R").value;
