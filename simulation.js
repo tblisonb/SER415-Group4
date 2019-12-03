@@ -54,9 +54,9 @@ function submitClicked() {
         alert("Percentages do not add up to 100 percent, please try again");
     else {
         let modelInit = {};
-        modelInit.straightFlow = document.getElementById("x1_S").value;
-        modelInit.rightFlow = document.getElementById("x1_R").value;
-        modelInit.leftFlow = document.getElementById("x1_L").value;
+        modelInit.straightFlow = Number(document.getElementById("x1_S").value)/100.0;
+        modelInit.rightFlow = Number(document.getElementById("x1_R").value)/100.0;
+        modelInit.leftFlow = Number(document.getElementById("x1_L").value)/100.0;
         //document.getElementById("b_sim").disabled = false;
         modelInit.reactionTime = 2;
         modelInit.environmentModifer = 1;
