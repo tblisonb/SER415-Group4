@@ -11,30 +11,30 @@
 <h4>Enter input:</h4>
 <div id="all_inputs">
     <div id="variables">
-        <input type="text" id="input1" size="12" placeholder="X1 Flow">
-        <input type="text" id="x1_R" size="12" placeholder="X1 % Right">
-        <input type="text" id="x1_S" size="12" placeholder="X1 % Straight">
-        <input type="text" id="x1_L" size="12" placeholder="X1 % Left">
+        <input type="text" id="input1" size="12" placeholder="X1 Flow" value="20">
+        <input type="text" id="x1_R" size="12" placeholder="X1 % Right" value="10">
+        <input type="text" id="x1_S" size="12" placeholder="X1 % Straight" value="75">
+        <input type="text" id="x1_L" size="12" placeholder="X1 % Left" value="15">
         <br/><br/>
-        <input type="text" id="input2" size="12" placeholder="X2 Flow">
-        <input type="text" id="x2_R" size="12" placeholder="X2 % Right">
-        <input type="text" id="x2_S" size="12" placeholder="X2 % Straight">
-        <input type="text" id="x2_L" size="12" placeholder="X2 % Left">
+        <input type="text" id="input2" size="12" placeholder="X2 Flow" value="30">
+        <input type="text" id="x2_R" size="12" placeholder="X2 % Right" value="20">
+        <input type="text" id="x2_S" size="12" placeholder="X2 % Straight" value="70">
+        <input type="text" id="x2_L" size="12" placeholder="X2 % Left" value="10">
         <br/><br/>
-        <input type="text" id="input3" size="12" placeholder="X3 Flow">
-        <input type="text" id="x3_R" size="12" placeholder="X3 % Right">
-        <input type="text" id="x3_S" size="12" placeholder="X3 % Straight">
-        <input type="text" id="x3_L" size="12" placeholder="X3 % Left">
+        <input type="text" id="input3" size="12" placeholder="X3 Flow" value="20">
+        <input type="text" id="x3_R" size="12" placeholder="X3 % Right" value="20">
+        <input type="text" id="x3_S" size="12" placeholder="X3 % Straight" value="60">
+        <input type="text" id="x3_L" size="12" placeholder="X3 % Left" value="20">
         <br/><br/>
-        <input type="text" id="input4" size="12" placeholder="X4 Flow">
-        <input type="text" id="x4_R" size="12" placeholder="X4 % Right">
-        <input type="text" id="x4_S" size="12" placeholder="X4 % Straight">
-        <input type="text" id="x4_L" size="12" placeholder="X4 % Left">
+        <input type="text" id="input4" size="12" placeholder="X4 Flow" value="30">
+        <input type="text" id="x4_R" size="12" placeholder="X4 % Right" value="5">
+        <input type="text" id="x4_S" size="12" placeholder="X4 % Straight" value="85">
+        <input type="text" id="x4_L" size="12" placeholder="X4 % Left" value="10">
         <p id="state"></p>
         <p id="time"></p>
         <br>
         <button id="b_param" type="button" onclick="submitClicked()">Submit Parameters</button>
-        <button id="b_sim" type="button" onclick="startSimulation()">Start Simulation</button>
+        <button id="b_sim" type="button" onclick="startSimulation()" disabled="true">Start Simulation</button>
         <p id="greet_p"></p>
         <br/>
         <p id="article_p"></p>
@@ -42,10 +42,10 @@
     <hr width="450px" align="left"/>
     <h4>Enter cycle time:</h4>
     <div id="cycle_time">
-        <input type="text" id="state1" size="24" placeholder="N/S S+R Time"><br/><br/>
-        <input type="text" id="state2" size="24" placeholder="E/W S+R Time"><br/><br/>
-        <input type="text" id="state3" size="24" placeholder="N/S L Time"><br/><br/>
-        <input type="text" id="state4" size="24" placeholder="E/W L Time"><br/><br/>
+        <input type="text" id="state1" size="24" placeholder="N/S S+R Time" value="20"><br/><br/>
+        <input type="text" id="state2" size="24" placeholder="E/W S+R Time" value="20"><br/><br/>
+        <input type="text" id="state3" size="24" placeholder="N/S L Time" value="8"><br/><br/>
+        <input type="text" id="state4" size="24" placeholder="E/W L Time" value="8"><br/><br/>
     </div>
     <p id="cycle_time_warning"></p>
     <hr width="450px" align="left"/>
@@ -60,19 +60,12 @@
     </div>
 </div>
 <div id="outputs">
-    <h4>Output Flow (cars/sec)</h4>
     <table id="output_table">
         <tr>
-            <th>X1</th>
-            <th>X2</th>
-            <th>X3</th>
-            <th>X4</th>
+            <th>Total Cars</th>
         </tr>
         <tr>
             <td id="x1_flow">0</td>
-            <td id="x2_flow">0</td>
-            <td id="x3_flow">0</td>
-            <td id="x4_flow">0</td>
         </tr>
     </table>
 </div>

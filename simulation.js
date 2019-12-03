@@ -36,19 +36,19 @@ function incrementTime() {
             state += 1;
             state_time = 0;
         }
+    document.getElementById("x1_flow").innerText = (Math.round(getTotalCarOnGreenCycle(sim_time) * 100) / 100).toFixed(2);
 }
 
 /**
  * Accept user parameters.
  */
 function submitClicked() {
-    //clearly this will do something else
     console.log('submit');
-
+    document.getElementById("b_sim").disabled = false;
     let modelInit = {};
-    modelInit.straightFlow = 0.6;
-    modelInit.rightFlow = 0.2;
-    modelInit.leftFlow = 0.2;
+    modelInit.straightFlow = document.getElementById("x1_S").innerText;
+    modelInit.rightFlow = document.getElementById("x1_R").innerText;
+    modelInit.leftFlow = document.getElementById("x1_L").innerText;
     modelInit.reactionTime = 2;
     modelInit.environmentModifer = 1;
     modelInit.peakFlow = 70;
