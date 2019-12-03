@@ -37,7 +37,7 @@ function incrementTime() {
             state += 1;
             state_time = 0;
         }
-    document.getElementById("total_cars").innerText = (Math.round(getTotalCarOnGreenCycle(sim_time) * 100) / 100).toFixed(2);
+
     let verification = verify();
     let totalCycleTime = mi.NS_Green + mi.NS_Left + mi.EW_Green + mi.EW_Left;
     document.getElementById("x1_flow").innerText = (mi.NS_rate * (mi.straightFlow > mi.rightFlow ? mi.straightFlow : mi.rightFlow)) * totalCycleTime;
