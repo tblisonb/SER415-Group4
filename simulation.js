@@ -117,7 +117,7 @@ function startSimulation() {
         document.getElementById("state4").value != null && document.getElementById("state4").value > 0) {
         document.getElementById("cycle_time_warning").innerText = null;
         var clock = setInterval(incrementTime, 1000);
-        document.getElementById("b_sim").disabled = true;
+
     } else {
         document.getElementById("cycle_time_warning").innerText = "Error: Must supply cycle times.";
     }
