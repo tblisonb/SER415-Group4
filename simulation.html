@@ -29,17 +29,17 @@
         <p id="time"></p>
         <br>
         <button id="b_param" type="button" onclick="submitClicked()">Submit Parameters</button>
-        <button id="b_sim" type="button" onclick="startSimulation()" disabled="true">Start Simulation</button>
-        <p id="greet_p"></p>
         <br/>
     </div>
     <hr width="450px" align="left"/>
     <h4>Enter cycle time:</h4>
     <div id="cycle_time">
-        <input type="text" id="state1" size="24" placeholder="N/S S+R Time"><br/><br/>
-        <input type="text" id="state2" size="24" placeholder="E/W S+R Time"><br/><br/>
-        <input type="text" id="state3" size="24" placeholder="N/S L Time" ><br/><br/>
-        <input type="text" id="state4" size="24" placeholder="E/W L Time" ><br/><br/>
+        Time Intervals: <br><br>
+
+        N/S, straight & right <input type="text" id="state1" size="24" placeholder="N/S S+R Time"><br/><br/>
+        E/W, straight & right <input type="text" id="state2" size="24" placeholder="E/W S+R Time"><br/><br/>
+        N/S, left <input type="text" id="state3" size="24" placeholder="N/S L Time" ><br/><br/>
+        E/W, left <input type="text" id="state4" size="24" placeholder="E/W L Time" ><br/><br/>
     </div>
     <p id="cycle_time_warning"></p>
     <hr width="450px" align="left"/>
@@ -56,25 +56,18 @@
 <div id="outputs">
     <table id="output_table">
         <tr>
-            <th>Total Cars</th>
-            <th>X1 Valid</th>
-            <th>X2 Valid</th>
-            <th>X3 Valid</th>
-            <th>X4 Valid</th>
+            <th></th>
+            <th>N/S Green</th>
+            <th>N/S Left Arrow</th>
+            <th>E/W Green</th>
+            <th>E/W Left Arrow</th>
         </tr>
         <tr>
-            <td id="total_cars">0</td>
-            <td id="x1_flow"></td>
-            <td id="x2_flow"></td>
-            <td id="x3_flow"></td>
-            <td id="x4_flow"></td>
-        </tr>
-        <tr>
-            <td></td>
-            <td id="x1_valid"></td>
-            <td id="x2_valid"></td>
-            <td id="x3_valid"></td>
-            <td id="x4_valid"></td>
+            <th>Was traffic stalled?</th>
+            <td id="ns_g_valid"></td>
+            <td id="ns_l_valid"></td>
+            <td id="ew_g_valid"></td>
+            <td id="ew_l_valid"></td>
         </tr>
     </table>
 </div>
