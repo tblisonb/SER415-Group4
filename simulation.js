@@ -37,17 +37,7 @@ function incrementTime() {
             state += 1;
             state_time = 0;
         }
-
-    let verification = verify();
-    let totalCycleTime = mi.NS_Green + mi.NS_Left + mi.EW_Green + mi.EW_Left;
-    document.getElementById("x1_flow").innerText = (mi.NS_rate * (mi.straightFlow > mi.rightFlow ? mi.straightFlow : mi.rightFlow)) * totalCycleTime;
-    document.getElementById("x2_flow").innerText = (mi.EW_rate * (mi.straightFlow > mi.rightFlow ? mi.straightFlow : mi.rightFlow)) * totalCycleTime;
-    document.getElementById("x3_flow").innerText = (mi.NS_rate * mi.leftFlow) * totalCycleTime;
-    document.getElementById("x4_flow").innerText = (mi.EW_rate * mi.leftFlow) * totalCycleTime;
-    document.getElementById("x1_valid").innerText = verification.EW_Green;
-    document.getElementById("x2_valid").innerText = verification.NS_Green;
-    document.getElementById("x3_valid").innerText = verification.EW_Left;
-    document.getElementById("x4_valid").innerText = verification.NS_Left;
+        
 }
 
 
