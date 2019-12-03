@@ -17,7 +17,24 @@
     position: absolute;
     overflow: visible;
     left: 500px;
-    bottom: 100px;
+    top: 25px;
+}
+
+#outputs {
+    position: absolute;
+    overflow: visible;
+    left: 615px;
+    top: 550px;
+    border: 1px solid black;
+    padding: 15px;
+}
+
+table, th, td {
+    border: 1px solid black;
+}
+
+th, td {
+    padding: 15px;
 }
 
 #x1 {
