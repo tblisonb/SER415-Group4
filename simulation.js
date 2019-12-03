@@ -49,46 +49,51 @@ function incrementTime() {
  */
 function submitClicked() {
     console.log('submit');
-    document.getElementById("b_sim").disabled = false;
     let modelInit = {};
-    modelInit.straightFlow = document.getElementById("x1_S").innerText;
-    modelInit.rightFlow = document.getElementById("x1_R").innerText;
-    modelInit.leftFlow = document.getElementById("x1_L").innerText;
-    modelInit.reactionTime = 2;
-    modelInit.environmentModifer = 1;
-    modelInit.peakFlow = 70;
-    modelInit.timeToPeak = 5; // This number will probably be between 5-20. Think of this as a speed coefficent. It shifts the whole curve. Smaller number is more acceleration
-    modelInit.X1 = 5;
-    modelInit.X3 = 5;
-    modelInit.X2 = 20;
-    modelInit.X4 = 20;
-    modelInit.NS_Green = 15;
-    modelInit.NS_Left = 5;
-    modelInit.EW_Green = 15;
-    modelInit.EW_Left = 5;
-
-    if (document.getElementById("feature1").checked){
-        modelInit = modifyTraffic(modelInit, .67, NaN, NaN)
+    modelInit.straightFlow = document.getElementById("x1_S").value;
+    modelInit.rightFlow = document.getElementById("x1_R").value;
+    modelInit.leftFlow = document.getElementById("x1_L").value;
+    if ((parseInt(modelInit.straightFlow) + parseInt(modelInit.rightFlow) + parseInt(modelInit.leftFlow))/100 !== 1) {
+        console.log(parseInt(modelInit.straightFlow) + parseInt(modelInit.rightFlow) + parseInt(modelInit.leftFlow));
+        alert("Percentages must equal 100!");
+    } else {
+        document.getElementById("b_sim").disabled = false;
+        modelInit.reactionTime = 2;
+        modelInit.environmentModifer = 1;
+        modelInit.peakFlow = 70;
+        modelInit.timeToPeak = 5; // This number will probably be between 5-20. Think of this as a speed coefficent. It shifts the whole curve. Smaller number is more acceleration
+        modelInit.X1 = 5;
+        modelInit.X3 = 5;
+        modelInit.X2 = 20;
+        modelInit.X4 = 20;
+        modelInit.NS_Green = 15;
+        modelInit.NS_Left = 5;
+        modelInit.EW_Green = 15;
+        modelInit.EW_Left = 5;
+    
+        if (document.getElementById("feature1").checked){
+            modelInit = modifyTraffic(modelInit, .67, NaN, NaN)
+        }
+        else if (document.getElementById("feature2").checked){
+            modelInit = modifyTraffic(modelInit, .33, NaN, NaN)
+        }
+        else if (document.getElementById("feature3").checked){
+            modelInit = modifyTraffic(modelInit, .55, NaN, NaN)
+        }
+        else if (document.getElementById("feature4").checked){
+            modelInit = modifyTraffic(modelInit, .75, 6, 3)
+        }
+        else if (document.getElementById("feature5").checked){
+            modelInit = modifyTraffic(modelInit, .80, 5.5, 2.5)
+        }
+        else if (document.getElementById("feature6").checked){
+            modelInit = modifyTraffic(modelInit, .3015, NaN, NaN)
+        }
+    
+        console.log(modelInit);
+        let trafficModel = new TrafficModel(modelInit);
+        document.getElementById("greet_p").innerHTML = JSON.stringify(trafficModel.verify());
     }
-    else if (document.getElementById("feature2").checked){
-        modelInit = modifyTraffic(modelInit, .33, NaN, NaN)
-    }
-    else if (document.getElementById("feature3").checked){
-        modelInit = modifyTraffic(modelInit, .55, NaN, NaN)
-    }
-    else if (document.getElementById("feature4").checked){
-        modelInit = modifyTraffic(modelInit, .75, 6, 3)
-    }
-    else if (document.getElementById("feature5").checked){
-        modelInit = modifyTraffic(modelInit, .80, 5.5, 2.5)
-    }
-    else if (document.getElementById("feature6").checked){
-        modelInit = modifyTraffic(modelInit, .3015, NaN, NaN)
-    }
-
-    console.log(modelInit);
-    let trafficModel = new TrafficModel(modelInit);
-    document.getElementById("greet_p").innerHTML = JSON.stringify(trafficModel.verify());
 }
 
 /**

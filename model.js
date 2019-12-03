@@ -48,10 +48,6 @@ function getTotalCarOnGreenCycle(time) {
 }
 
 function init(MI) {
-    if (MI.straightFlow + MI.rightFlow + MI.leftFlow !== 1) {
-        console.log('S + R + L =/= 1. Adjust model inputs.');
-    }
-
     if (typeof(MI.reactionTime) === 'undefined') {
         MI.reactionTime = 2;
     }
