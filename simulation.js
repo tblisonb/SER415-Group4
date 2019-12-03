@@ -100,6 +100,13 @@ function submitClicked() {
             }
 
             console.log(modelInit);
+
+            let trafficModel = new TrafficModel(modelInit);
+            let verify = trafficModel.verify();
+            document.getElementById("ns_g_valid").innerHTML = verify.NS_Green ? "No" : "Yes";
+            document.getElementById("ns_l_valid").innerHTML = verify.NS_Left  ? "No" : "Yes";
+            document.getElementById("ew_g_valid").innerHTML = verify.EW_Green ? "No" : "Yes";
+            document.getElementById("ew_l_valid").innerHTML = verify.EW_Left  ? "No" : "Yes";
         }
     }
 }
