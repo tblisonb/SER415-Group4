@@ -54,7 +54,6 @@ function incrementTime() {
  */
 function submitClicked() {
     console.log('submit');
-    document.getElementById("b_param").disabled = true;
     let modelInit = {};
     modelInit.straightFlow = document.getElementById("x1_S").value;
     modelInit.rightFlow = document.getElementById("x1_R").value;
@@ -63,6 +62,7 @@ function submitClicked() {
         console.log(parseInt(modelInit.straightFlow) + parseInt(modelInit.rightFlow) + parseInt(modelInit.leftFlow));
         alert("Percentages must equal 100!");
     } else {
+        document.getElementById("b_param").disabled = true;
         document.getElementById("b_sim").disabled = false;
         modelInit.reactionTime = 2;
         modelInit.environmentModifer = 1;
