@@ -11,19 +11,19 @@
 <h4>Enter input:</h4>
 <div id="all_inputs">
     <div id="variables">
-        X1 input: <input type="text" id="input1" size="12" placeholder="X1 Flow" value="15">
+        X1 input: <input type="number" id="input1" size="12" placeholder="X1 Flow" value="15">
         <br><br>
-        X2 input: <input type="text" id="input2" size="12" placeholder="X2 Flow" value="20">
+        X2 input: <input type="number" id="input2" size="12" placeholder="X2 Flow" value="20">
         <br/><br/>
-        X3 input: <input type="text" id="input3" size="12" placeholder="X3 Flow" value="15">
+        X3 input: <input type="number" id="input3" size="12" placeholder="X3 Flow" value="15">
         <br/><br/>
-        X4 input: <input type="text" id="input4" size="12" placeholder="X4 Flow" value="20">
+        X4 input: <input type="number" id="input4" size="12" placeholder="X4 Flow" value="20">
         <br><br>
-        % turning right: <input type="text" id="x1_R" size="12" placeholder="X1 % Right" value="25">
+        Percentage of vehicles turning right:<input type="number" id="x1_R" size="12" placeholder="% Right" value="25">
         <br><br>
-        % going straight: <input type="text" id="x1_S" size="12" placeholder="X1 % Straight" value="60">
+        Percentage of vehicles going straight:<input type="number" id="x1_S" size="12" placeholder="% Straight" value="60">
         <br><br>
-        % turning left<input type="text" id="x1_L" size="12" placeholder="X1 % Left" value="15">
+        Percentage of vehicles turning left:<input type="number" id="x1_L" size="12" placeholder="% Left" value="15">
         <br/><br/>
         <p id="state"></p>
         <p id="time"></p>
@@ -35,11 +35,10 @@
     <h4>Enter cycle time:</h4>
     <div id="cycle_time">
         Time Intervals: <br><br>
-
-        N/S, straight & right <input type="text" id="state1" size="24" placeholder="N/S S+R Time" value="20"><br/><br/>
-        E/W, straight & right <input type="text" id="state2" size="24" placeholder="E/W S+R Time" value="20"><br/><br/>
-        N/S, left <input type="text" id="state3" size="24" placeholder="N/S L Time" value="8"><br/><br/>
-        E/W, left <input type="text" id="state4" size="24" placeholder="E/W L Time" value="8"><br/><br/>
+        N/S, straight & right <input type="number" id="state1" size="24" placeholder="N/S S+R Time" value="20"><br/><br/>
+        E/W, straight & right <input type="number" id="state2" size="24" placeholder="E/W S+R Time" value="20"><br/><br/>
+        N/S, left <input type="number" id="state3" size="24" placeholder="N/S L Time" value="8"><br/><br/>
+        E/W, left <input type="number" id="state4" size="24" placeholder="E/W L Time" value="8"><br/><br/>
     </div>
     <p id="cycle_time_warning"></p>
     <hr width="450px" align="left"/>
