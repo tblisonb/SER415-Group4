@@ -16,6 +16,7 @@ let state_time = 0;
  * @type {number}
  */
 let state = 1;
+let flag = true;
 
 /**
  * Increments the current simulation time by one second and cycles through the simulation states.
@@ -66,7 +67,7 @@ function submitClicked() {
         modelInit.straightFlow = document.getElementById("x1_S").value;
         modelInit.rightFlow = document.getElementById("x1_R").value;
         modelInit.leftFlow = document.getElementById("x1_L").value;
-        document.getElementById("b_sim").disabled = false;
+        //document.getElementById("b_sim").disabled = false;
         modelInit.reactionTime = 2;
         modelInit.environmentModifer = 1;
         modelInit.peakFlow = 70;
@@ -120,6 +121,7 @@ function startSimulation() {
     } else {
         document.getElementById("cycle_time_warning").innerText = "Error: Must supply cycle times.";
     }
+    flag = false;
 }
 
 /**
