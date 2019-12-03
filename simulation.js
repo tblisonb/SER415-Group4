@@ -38,10 +38,15 @@ function incrementTime() {
         }
     document.getElementById("total_cars").innerText = (Math.round(getTotalCarOnGreenCycle(sim_time) * 100) / 100).toFixed(2);
     let verification = verify();
-    document.getElementById("x1_flow").innerText = verification.EW_Green;
-    document.getElementById("x2_flow").innerText = verification.NS_Green;
-    document.getElementById("x3_flow").innerText = verification.EW_Left;
-    document.getElementById("x4_flow").innerText = verification.NS_Left;
+    let totalCycleTime = mi.NS_Green + mi.NS_Left + mi.EW_Green + mi.EW_Left;
+    document.getElementById("x1_flow").innerText = (mi.NS_rate * (mi.straightFlow > mi.rightFlow ? mi.straightFlow : mi.rightFlow)) * totalCycleTime;
+    document.getElementById("x2_flow").innerText = (mi.EW_rate * (mi.straightFlow > mi.rightFlow ? mi.straightFlow : mi.rightFlow)) * totalCycleTime;
+    document.getElementById("x3_flow").innerText = (mi.NS_rate * mi.leftFlow) * totalCycleTime;
+    document.getElementById("x4_flow").innerText = (mi.EW_rate * mi.leftFlow) * totalCycleTime;
+    document.getElementById("x1_valid").innerText = verification.EW_Green;
+    document.getElementById("x2_valid").innerText = verification.NS_Green;
+    document.getElementById("x3_valid").innerText = verification.EW_Left;
+    document.getElementById("x4_valid").innerText = verification.NS_Left;
 }
 
 /**
@@ -50,22 +55,23 @@ function incrementTime() {
 function submitClicked() {
     console.log('submit');
     document.getElementById("b_sim").disabled = false;
+    document.getElementById("b_param").disabled = true;
     let modelInit = {};
-    modelInit.straightFlow = document.getElementById("x1_S").innerText;
-    modelInit.rightFlow = document.getElementById("x1_R").innerText;
-    modelInit.leftFlow = document.getElementById("x1_L").innerText;
+    modelInit.straightFlow = document.getElementById("x1_S").value;
+    modelInit.rightFlow = document.getElementById("x1_R").value;
+    modelInit.leftFlow = document.getElementById("x1_L").value;
     modelInit.reactionTime = 2;
     modelInit.environmentModifer = 1;
     modelInit.peakFlow = 70;
     modelInit.timeToPeak = 5; // This number will probably be between 5-20. Think of this as a speed coefficent. It shifts the whole curve. Smaller number is more acceleration
-    modelInit.X1 = 5;
-    modelInit.X3 = 5;
-    modelInit.X2 = 20;
-    modelInit.X4 = 20;
-    modelInit.NS_Green = 15;
-    modelInit.NS_Left = 5;
-    modelInit.EW_Green = 15;
-    modelInit.EW_Left = 5;
+    modelInit.X1 = document.getElementById("input1").value;
+    modelInit.X3 = document.getElementById("input3").value;
+    modelInit.X2 = document.getElementById("input2").value;
+    modelInit.X4 = document.getElementById("input4").value;
+    modelInit.NS_Green = document.getElementById("state1").value;
+    modelInit.NS_Left = document.getElementById("state3").value;
+    modelInit.EW_Green = document.getElementById("state2").value;
+    modelInit.EW_Left = document.getElementById("state4").value;
 
     if (document.getElementById("feature1").checked){
         modelInit = modifyTraffic(modelInit, .67, NaN, NaN)
